@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little Space — Krutika & Victor</title>
+  <meta name="theme-color" content="#2b211b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Libre+Baskerville:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="gate" class="gate">
+    <div class="gate-paper">
+      <div class="rose">❦</div>
+      <h1>our little space</h1>
+      <p class="smallcaps">KRUTIKA &amp; VICTOR</p>
+      <p class="type">A private little corner for letters, memories, thoughts &amp; voices.</p>
+      <div class="gate-buttons">
+        <button data-role="KRUTIKA">I am Krutika</button>
+        <button data-role="VICTOR">I am Victor</button>
+      </div>
+      <div id="passwordBox" class="password-box hidden">
+        <label id="passwordLabel">Password</label>
+        <input id="passwordInput" type="password" autocomplete="off" placeholder="Enter your password">
+        <button id="unlockBtn">Open our space ♡</button>
+        <p id="loginError" class="error"></p>
+      </div>
+      <p class="tiny">Note: the two-passcode gate is a simple private-site gate, not high-security authentication.</p>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="script">Krutika</div>
+        <div class="amp">&amp;</div>
+        <div class="script">Victor</div>
+        <div class="heart">♡</div>
+      </div>
+      <nav>
+        <button class="nav active" data-section="home">⌂ <span>Home</span></button>
+        <button class="nav" data-section="letters">✉ <span>Letters</span></button>
+        <button class="nav" data-section="diary">▤ <span>Diary</span></button>
+        <button class="nav" data-section="memories">▣ <span>Memories</span></button>
+        <button class="nav" data-section="voice">♩ <span>Voice Notes</span></button>
+        <button class="nav" data-section="little">☆ <span>Little Things</span></button>
+        <button class="nav" data-section="about">♡ <span>About Us</span></button>
+      </nav>
+      <div class="side-note">You + Me<br>= Everything<br><span>♡</span></div>
+      <div class="key">⚿</div>
+    </aside>
+
+    <main>
+      <header class="hero">
+        <div class="flower">❀</div>
+        <div class="hero-copy">
+          <h1>our little space <span>♡</span></h1>
+          <div class="smallcaps">KRUTIKA &amp; VICTOR</div>
+          <div class="ornament">— ❦ —</div>
+          <p class="paper-strip">A safe place for our little conversations, big feelings and tiny moments. ♡</p>
+        </div>
+        <div class="polaroids">
+          <div class="polaroid p1"><div class="photo-placeholder">our<br>memory</div></div>
+          <div class="polaroid p2"><div class="photo-placeholder">♡</div></div>
+        </div>
+      </header>
+
+      <section id="home" class="section active">
+        <div class="section-intro">
+          <h2>Welcome home.</h2>
+          <p>Some things are too special to leave scattered in ordinary places.</p>
+        </div>
+        <div class="cards">
+          <button class="card" data-go="letters"><span class="icon">✉</span><h3>Letters</h3><p>Words from me to you.</p></button>
+          <button class="card" data-go="diary"><span class="icon">▤</span><h3>Diary</h3><p>Random thoughts, daily talks, our story.</p></button>
+          <button class="card" data-go="memories"><span class="icon">▣</span><h3>Memories</h3><p>Moments we never want to forget.</p></button>
+          <button class="card" data-go="voice"><span class="icon">♩</span><h3>Voice Notes</h3><p>Hear my voice, whenever you want.</p></button>
+          <button class="card" data-go="little"><span class="icon">☆</span><h3>Little Things</h3><p>Tiny things that remind me of you.</p></button>
+          <button class="card" data-go="about"><span class="icon">♡</span><h3>About Us</h3><p>Us, in our little world.</p></button>
+        </div>
+        <div class="quote">“This is our little space on the internet,<br>but somehow it holds our whole world.” ♡</div>
+      </section>
+
+      <section id="letters" class="section">
+        <div class="section-head"><div><h2>Letters <span>♡</span></h2><p>Words I wanted you to keep.</p></div><button class="primary" data-open="letterForm">+ New Letter</button></div>
+        <div id="lettersList" class="paper-list"></div>
+      </section>
+
+      <section id="diary" class="section">
+        <div class="section-head"><div><h2>Diary <span>♡</span></h2><p>Thoughts that don't need anywhere else to go.</p></div><button class="primary" data-open="diaryForm">+ New Entry</button></div>
+        <div id="diaryList" class="diary-list"></div>
+      </section>
+
+      <section id="memories" class="section">
+        <div class="section-head"><div><h2>Memories <span>♡</span></h2><p>Snapshots and the stories behind them.</p></div><button class="primary" data-open="memoryForm">+ Add Memory</button></div>
+        <div id="memoriesList" class="memory-grid"></div>
+      </section>
+
+      <section id="voice" class="section">
+        <div class="section-head"><div><h2>Voice Notes <span>♡</span></h2><p>For the days when a written message isn't enough.</p></div><button class="primary" data-open="voiceForm">+ New Note</button></div>
+        <div id="voiceList" class="voice-list"></div>
+      </section>
+
+      <section id="little" class="section">
+        <div class="section-head"><div><h2>Little Things <span>♡</span></h2><p>The tiny things I never want to forget.</p></div><button class="primary" data-open="littleForm">+ Add</button></div>
+        <div id="littleList" class="little-grid"></div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-head"><div><h2>About Us <span>♡</span></h2><p>Our story, our little world.</p></div></div>
+        <div class="about-paper">
+          <div class="about-photo">♡<br><span>our photo</span></div>
+          <div>
+            <p class="type">Two people. A thousand conversations. A collection of little moments.</p>
+            <h3>Our little timeline</h3>
+            <ul class="timeline">
+              <li><b>December 2023</b><span>We met.</span></li>
+              <li><b>14 February 2024</b><span>Our first “official” date.</span></li>
+              <li><b>Today</b><span>Still collecting little things.</span></li>
+            </ul>
+            <div class="sticky">No matter where life takes us,<br>I'm glad you're in my story. ♡</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>♡ Made with all my love, for you. <span>Est. 14 February 2024</span> ♡</footer>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-paper">
+      <button class="close" id="closeModal">×</button>
+      <div id="formMount"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
