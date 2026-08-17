@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Little Space ♡</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,serif;background:#120d12;color:#f8edf4}.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}.card{width:min(440px,100%);background:#211722;border:1px solid #4a3042;border-radius:24px;padding:28px;box-shadow:0 20px 60px #0008}h1{font-size:32px;margin:0 0 8px;text-align:center}.sub{text-align:center;color:#cdb8c7;margin-bottom:24px}input,button,textarea{width:100%;border:0;border-radius:14px;padding:14px;font:inherit}input,textarea{background:#30222e;color:white;border:1px solid #543d50}button{background:#c47ba4;color:white;font-weight:bold;cursor:pointer;margin-top:12px}.error{color:#ff9dbb;text-align:center;min-height:24px;margin-top:10px}.hidden{display:none!important}header{padding:22px 18px;text-align:center;border-bottom:1px solid #392633}nav{display:flex;gap:8px;overflow:auto;padding:12px;position:sticky;top:0;background:#120d12;z-index:2}nav button{min-width:max-content;width:auto;margin:0;padding:10px 14px;background:#30202c}nav button.active{background:#c47ba4}main{max-width:900px;margin:auto;padding:18px}.section{display:none}.section.active{display:block}.box{background:#211722;border:1px solid #4a3042;border-radius:20px;padding:20px;margin-bottom:16px}.box h2{margin-top:0}.heart{text-align:center;font-size:44px;margin:12px}.small{color:#cdb8c7;font-size:14px}.logout{background:#5b3047}
+</style>
+</head>
+<body>
+<div id="login" class="screen"><div class="card"><div class="heart">♡</div><h1>Our Little Space</h1><div class="sub">A tiny place that belongs to us.</div><input id="role" placeholder="KRUTIKA or VICTOR" autocomplete="off"><input id="password" type="password" placeholder="Password"><button onclick="login()">Open our space</button><div id="error" class="error"></div></div></div>
+<div id="app" class="hidden"><header><div class="small" id="welcome"></div><h1>Our Little Space ♡</h1></header>
+<nav><button class="active" onclick="show('home',this)">Home</button><button onclick="show('letters',this)">Letters</button><button onclick="show('diary',this)">Daily Diary</button><button onclick="show('memories',this)">Memories</button><button onclick="show('songs',this)">Songs</button><button onclick="show('voice',this)">Voice Notes</button></nav>
+<main>
+<section id="home" class="section active"><div class="box"><div class="heart">♥</div><h2>Welcome home.</h2><p>This is our little corner of the internet — for everything we don't want to lose.</p><p class="small">Your private space will be connected to Supabase next.</p></div></section>
+<section id="letters" class="section"><div class="box"><h2>💌 Letters</h2><p>Write something here that you want the other person to find.</p><textarea rows="7" placeholder="Write your letter..."></textarea><button onclick="alert('The letter editor is ready. We will connect saving and replies next.')">Save Letter</button></div><div class="box"><h2>💬 Replies</h2><p class="small">Replies to letters will appear here once the database connection is added.</p></div></section>
+<section id="diary" class="section"><div class="box"><h2>📖 Daily Diary</h2><textarea rows="8" placeholder="How was today?"></textarea><button onclick="alert('Diary saving will be connected next.')">Save today's diary</button></div></section>
+<section id="memories" class="section"><div class="box"><h2>🖼️ Memories</h2><p>Add photos and little moments you never want to forget.</p><input type="file" accept="image/*" multiple><p class="small">Photo storage will be connected next.</p></div></section>
+<section id="songs" class="section"><div class="box"><h2>🎵 Our Songs</h2><input placeholder="Song name or link"><button onclick="alert('Song saving will be connected next.')">Add Song</button></div></section>
+<section id="voice" class="section"><div class="box"><h2>🎙️ Voice Notes</h2><button onclick="alert('Voice-note recording/storage will be connected next.')">Add a voice note</button><p class="small">We will connect Supabase Storage for audio files.</p></div></section>
+<div class="box"><button class="logout" onclick="logout()">Lock our space</button></div>
+</main></div>
+<script>
+const SUPABASE_URL="https://rhjfdxrbzoavnghiccxl.supabase.co";
+const SUPABASE_KEY="sb_publishable_i11o-INoXb3yxznsiovCPA_RxpCQOhr";
+async function login(){const role=document.getElementById("role").value.trim().toUpperCase(),password=document.getElementById("password").value,error=document.getElementById("error");error.textContent="";if(!["KRUTIKA","VICTOR"].includes(role)){error.textContent="Choose KRUTIKA or VICTOR.";return}try{const r=await fetch(SUPABASE_URL+"/rest/v1/rpc/login_site",{method:"POST",headers:{"Content-Type":"application/json","apikey":SUPABASE_KEY,"Authorization":"Bearer "+SUPABASE_KEY},body:JSON.stringify({entered_role:role,entered_password:password})});const data=await r.json();if(!r.ok)throw new Error();if(data===role){sessionStorage.setItem("space_role",role);openApp(role)}else error.textContent="Wrong password."}catch(e){error.textContent="Could not connect. Check your Supabase setup."}}
+function openApp(role){document.getElementById("login").classList.add("hidden");document.getElementById("app").classList.remove("hidden");document.getElementById("welcome").textContent="Signed in as "+role}
+function logout(){sessionStorage.clear();location.reload()}
+function show(id,btn){document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));btn.classList.add("active")}
+const saved=sessionStorage.getItem("space_role");if(saved)openApp(saved);
+</script>
+</body></html>
