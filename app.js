@@ -3,14 +3,14 @@
   Put your Supabase project URL and anon key below.
   Find them in Supabase: Project Settings -> API.
 */
-const SUPABASE_URL = "PASTE_YOUR_SUPABASE_URL_HERE";
-const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_KEY_HERE";
+const SUPABASE_URL = "https://rhjfdxrbzoavnghiccxl.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_i11o-INoXb3yxznsiovCPA_RxpCQOhr";
 
 /* These are the two simple site passcodes.
    Change them before publishing. This is a front-end gate, not true authentication. */
 const PASSCODES = {
-  KRUTIKA: "krutikapass",
-  VICTOR: "victorpass"
+  KRUTIKA: "victor2105",
+  VICTOR: "krutika2701"
 };
 
 const BUCKET = "our-little-space";
