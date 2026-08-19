@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Little Space — V ♡ K</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <div class="ornament">✦ ♡ ✦</div>
+    <h1>Our Little Space</h1>
+    <p class="subtitle">V ♡ K</p>
+    <p class="small">A little corner for the things we never want to lose.</p>
+    <div class="role-buttons">
+      <button data-role="KRUTIKA">I am Krutika</button>
+      <button data-role="VICTOR">I am Victor</button>
+    </div>
+    <div id="passwordBox" class="hidden">
+      <label id="passwordLabel"></label>
+      <input id="passwordInput" type="password" placeholder="Password">
+      <button id="unlockBtn">Enter our space ♡</button>
+      <p id="loginError" class="error"></p>
+    </div>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+<header class="site-header">
+  <div class="brand">
+    <div class="ornament">✦</div>
+    <h1>Our Little Space</h1>
+    <p>V ♡ K</p>
+  </div>
+  <nav>
+    <button class="nav active" data-section="home">Home</button>
+    <button class="nav" data-section="letters">Letters</button>
+    <button class="nav" data-section="diary">Diary</button>
+    <button class="nav" data-section="memories">Memories</button>
+    <button class="nav" data-section="voice">Voice Notes</button>
+    <button class="nav" data-section="little">Little Things</button>
+    <button class="nav" data-section="about">About Us</button>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="section active">
+  <div class="hero paper">
+    <div class="ornament">❦</div>
+    <h2>Welcome to our little corner of the world</h2>
+    <p>A place for letters, ordinary days, tiny memories, voices, and all the little things that make us think of each other.</p>
+    <div class="quote">“Some moments are small enough to fit in a sentence, but precious enough to stay forever.”</div>
+  </div>
+  <div class="home-grid">
+    <button class="tile" data-go="letters"><span>✉</span><b>Letters</b><small>Words meant for each other</small></button>
+    <button class="tile" data-go="diary"><span>▤</span><b>Diary</b><small>Our days, one page at a time</small></button>
+    <button class="tile" data-go="memories"><span>▣</span><b>Memories</b><small>Pictures and moments</small></button>
+    <button class="tile" data-go="voice"><span>♬</span><b>Voice Notes</b><small>Keep a little piece of a voice</small></button>
+    <button class="tile" data-go="little"><span>☆</span><b>Little Things</b><small>Things that remind me of you</small></button>
+    <button class="tile" data-go="about"><span>♡</span><b>About Us</b><small>How our story began</small></button>
+  </div>
+</section>
+
+<section id="letters" class="section">
+  <div class="section-head"><div><h2>Letters</h2><p>Things we wanted to say.</p></div><button class="primary" data-open="letterForm">+ New Letter</button></div>
+  <div id="lettersList" class="stack"></div>
+</section>
+
+<section id="diary" class="section">
+  <div class="section-head"><div><h2>Diary</h2><p>Our days, kept like old pages.</p></div><button class="primary" data-open="diaryForm">+ New Entry</button></div>
+  <div id="diaryList" class="stack"></div>
+</section>
+
+<section id="memories" class="section">
+  <div class="section-head"><div><h2>Memories</h2><p>Photographs and the stories behind them.</p></div><button class="primary" data-open="memoryForm">+ Add Memory</button></div>
+  <div id="memoriesList" class="memory-grid"></div>
+</section>
+
+<section id="voice" class="section">
+  <div class="section-head"><div><h2>Voice Notes</h2><p>Little recordings we don't want to forget.</p></div><button class="primary" data-open="voiceForm">+ Voice Note</button></div>
+  <div id="voiceList" class="stack"></div>
+</section>
+
+<section id="little" class="section">
+  <div class="section-head"><div><h2>Little Things</h2><p>Things that remind me of you.</p></div><button class="primary" data-open="littleForm">+ Add Little Thing</button></div>
+  <div id="littleList" class="stack"></div>
+</section>
+
+<section id="about" class="section">
+  <div class="about-paper paper">
+    <div class="ornament">❦</div>
+    <h2>About Us</h2>
+    <p class="intro">A little piece of our story, exactly the way I remember it.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="date">DECEMBER 2025</div><div class="dot">♡</div>
+        <div class="timeline-card">
+          <h3>The Most Random Beginning</h3>
+          <p>We met completely by coincidence on AirTalk. Neither of us expected anything serious—we thought it would just be time pass. But somehow we connected so easily, almost like we'd known each other before. I still remember your first picture: the green shirt, messy hair, shades, cute dimples and those pretty lips. And yes, I was Brinda at first 😭. Three days later I finally told you, “I'm Krutika.”</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">JANUARY 3, 2026</div><div class="dot">♡</div>
+        <div class="timeline-card">
+          <h3>The First Almost-Goodbye</h3>
+          <p>We talked almost constantly until I got scared of getting too attached. I tried to disappear around Christmas, thinking leaving early would save me from getting hurt. But you still wished me on Christmas and New Year, and somehow I came back on January 3. After that, we just couldn't really stay away from each other.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">FEBRUARY 2026</div><div class="dot">♡</div>
+        <div class="timeline-card">
+          <h3>Somewhere Between All Those Calls</h3>
+          <p>After my birthday trip and all the missing each other, we became even closer. There were endless calls, silly conversations and our stupid little “Spidey thingy.” On February 9 you told me you loved me, and on February 11 you finally told me everything you felt. I was scared and overwhelmed, but you gave me time and never forced me. Somewhere in all of that, I finally realized that I loved you too. On February 14, we officially became us.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">APRIL 2026</div><div class="dot">♡</div>
+        <div class="timeline-card">
+          <h3>When Everything Got Scary</h3>
+          <p>Then my parents found our chats, and suddenly our little private world didn't feel private anymore. There were tears, fear and moments when I thought we had no choice but to end everything. We had to face things we hadn't been completely honest about, including me finally telling you my real age. Still, neither of us really wanted to say goodbye. So after everything, we chose to stay together till we could.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">MAY 2026</div><div class="dot">♡</div>
+        <div class="timeline-card">
+          <h3>The Almost Goodbye</h3>
+          <p>May hurt in a different way. There was a point when you decided we should slowly stop talking and eventually let each other go. I didn't know how to suddenly make my first love become a memory. I tried to accept that maybe I had to learn how to live without you, but somehow, after all the fear and hurt, we kept finding our way back to each other.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">NOW</div><div class="dot">♡</div>
+        <div class="timeline-card">
+          <h3>The Little Things</h3>
+          <p>Some of my happiest moments aren't big at all. It's being on call while you work or binge-watch something and I study. It's your little kisses over the phone, your teasing and nicknames, the way you notice even a tiny change in my mood, tell me to study, and sometimes fall asleep on call with me. Those ordinary things mean so much to me simply because they're ours.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote">“We were just two strangers who thought this would be nothing, and somehow, it became us.”</div>
+    <p class="intro">I made this little space because I don't want to forget the real parts of our story—the first conversation, the green shirt, Brinda becoming Krutika, January 3, February 14, the tears in April, the almost-goodbye in May, and everything that came after. If we ever forget how we got here, we can come back here and remember.</p>
+    <div class="quote">V ♡ K<br><small>December 2025 — we met. February 2026 — we became us. Everything after — ours to remember.</small></div>
+  </div>
+</section>
+</main>
+</div>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button id="closeModal" class="close">×</button>
+    <div id="formMount"></div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
