@@ -9,9 +9,9 @@
 .entry-body{border-top:1px solid #9a7957;margin-top:18px;padding-top:16px}
 
 /* Author colors: subtle vintage distinction */
-.collapsible-entry.author-krutika{background:#f0d8d0;border-color:#9a5d50}
+.collapsible-entry.author-krutika{background:#E8D2B5;border-color:#9a5d50}
 .collapsible-entry.author-krutika summary h3,.collapsible-entry.author-krutika .meta{color:#7b3f38}
-.collapsible-entry.author-victor{background:#d9e1dd;border-color:#607c74}
+.collapsible-entry.author-victor{background:#D4BE9A;border-color:#607c74}
 .collapsible-entry.author-victor summary h3,.collapsible-entry.author-victor .meta{color:#3f625a}
 .collapsible-entry.author-krutika .entry-body,.collapsible-entry.author-victor .entry-body{border-top:1px solid currentColor;margin-top:14px;padding-top:14px}
 
