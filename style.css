@@ -28,3 +28,17 @@
 .collapsible-entry.author-victor{background:#d9e1dd;border-color:#607c74}
 .collapsible-entry.author-victor summary h3,.collapsible-entry.author-victor .meta{color:#3f625a}
 .memory-card.collapsible-entry .memory-image{margin:0 0 18px}
+/* AUTHOR BACKGROUNDS */
+
+.collapsible-entry.author-krutika {
+  background-color: #E8D2B8 !important;
+}
+
+.collapsible-entry.author-victor {
+  background-color: #CFC4B2 !important;
+}
+
+.collapsible-entry.author-krutika .entry-body,
+.collapsible-entry.author-victor .entry-body {
+  background-color: transparent !important;
+}
